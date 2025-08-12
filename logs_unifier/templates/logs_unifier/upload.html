@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Upload JSON files</title>
+  <script>
+    function updateIndexInputs() {
+      const filesInput = document.getElementById('files');
+      const container = document.getElementById('indices');
+      container.innerHTML = '';
+      for(let i=0; i < filesInput.files.length; i++) {
+        const fname = filesInput.files[i].name;
+        const div = document.createElement('div');
+        div.innerHTML = `<label>${fname} -> </label>
+                         <input type="text" name="index_for_${fname}" placeholder="Index name pattern" required>`;
+        container.appendChild(div);
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>Upload JSON files to Elasticsearch</h1>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input id="files" type="file" multiple accept=".json" name="files" onchange="updateIndexInputs()" required><br/><br/>
+    <div id="indices"></div><br/>
+    <button type="submit">Upload</button>
+    {% if message %}
+      <p style="color: green;">{{ message }}</p>
+    {% endif %}
+  </form>
+</body>
+</html>

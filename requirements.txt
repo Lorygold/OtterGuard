@@ -1,0 +1,2 @@
+Django==5.2.5
+elasticsearch>=8.0.0,<9.0.0
