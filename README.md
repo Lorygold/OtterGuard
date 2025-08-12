@@ -11,7 +11,7 @@ Follow these steps to get OtterGuard up and running:
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/<your-username>/OtterGuard.git
+git clone https://github.com/Lorygold/OtterGuard.git
 cd OtterGuard
 ```
 
